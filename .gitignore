@@ -1,0 +1,12 @@
+﻿[Bb]in
+[Rr]elease*/
+obj/
+
+paket.exe
+paket-files/
+packages/
+
+*.suo
+*/*.suo
+*.user
+*.userprefs

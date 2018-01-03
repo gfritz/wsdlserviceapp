@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- FS2024 build error on netcoreapp2.0 -->
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <!-- no FS2024 build error on net461 -->
+    <!--<TargetFramework>net461</TargetFramework>-->
+    <!-- before adding FscToolPath and FscToolExe dotnet build fails with
+    error FS3033 : The type provider 'FSharp.Data.TypeProviders.DesignTime.DataProviders' reported an error : Unable to cast object of type 'Internal.Utilities.TypeProvider.Emit.ProvidedTypeDefinition' to type 'System.Reflection.IReflectableType'. [C:\git\tp-tests\wsdlserviceapp\wsdlserviceapp.fsproj]
+    FSC : error FS3020: One or more errors seen during provided type setup [C:\git\tp-tests\wsdlserviceapp\wsdlserviceapp.fsproj]
+     -->
+    <!-- after adding them, dotnet build fails with
+    FSC : error FS2024: Static linking may not be used on an assembly referencing mscorlib (e.g. a .NET Framework assembly) when generating an assembly that references System.Runtime (e.g. a .NET Core or Portable assembly). [C:\git\tp-tests\wsdlserviceapp\wsdlserviceapp.fsproj]
+    -->
+    <FscToolPath>C:\Program Files (x86)\Microsoft SDKs\F#\4.1\Framework\v4.0</FscToolPath>
+    <FscToolExe>fsc.exe</FscToolExe>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".paket\paket.dependencies" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <Import Project=".paket\Paket.Restore.targets" />
+</Project>

@@ -1,0 +1,14 @@
+source https://artifacts.cardlytics.com/artifactory/api/nuget/cdl-teamcity-output-inhouse
+source C:\localNuget
+source http://vmcorptc01/guestAuth/app/nuget/v1/FeedService.svc/
+source https://api.nuget.org/v3/index.json
+
+nuget FSharp.Core
+nuget FSharp.Data.TypeProviders 5.0.0.2
+nuget System.ServiceModel.Primitives 4.4.1-servicing-25917-01
+
+# ugh - download hangs
+# http http://soapclient.com/newsservice.html/xml/NEWS.SRI
+# more ugh want to use relative path
+# just going to add it to the project
+#http file:///NEWS.SRI
